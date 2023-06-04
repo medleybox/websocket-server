@@ -1,0 +1,17 @@
+image: docker:20
+
+services:
+  - docker:dind
+
+Build:
+  stage: build
+  tags:
+    - docker
+  script:
+    - >
+      docker build
+      --pull
+      --cache-from $CI_REGISTRY_IMAGE:latest
+      --tag $CI_REGISTRY_IMAGE:latest
+      .
+    - docker push $CI_REGISTRY_IMAGE:latest
