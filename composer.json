@@ -1,5 +1,11 @@
 {
     "require": {
-        "cboden/ratchet": "^0.4.4"
-    }
+        "cboden/ratchet": "dev-php82"
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/josh-gaby/Ratchet"
+      }
+    ]
 }
