@@ -12,4 +12,7 @@ USER 82
 
 ENTRYPOINT ["php", "/app/server.php"]
 
+HEALTHCHECK --interval=20s --timeout=1s --start-period=5s \
+  CMD php /app/healthcheck.php
+
 COPY --from=composer /app /app

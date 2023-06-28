@@ -1,11 +1,18 @@
 {
     "require": {
-        "cboden/ratchet": "dev-php82"
+        "cboden/ratchet": "dev-php82",
+        "ratchet/pawl": "^0.4.1"
     },
     "repositories": [
       {
         "type": "vcs",
         "url": "https://github.com/josh-gaby/Ratchet"
       }
-    ]
+    ],
+    "replace": {
+        "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php82": "*",
+        "symfony/polyfill-php81": "*",
+        "symfony/polyfill-php80": "*"
+     }
 }

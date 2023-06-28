@@ -31,16 +31,19 @@ class WebsocketServer implements MessageComponentInterface
 
     public function onMessage(ConnectionInterface $from, $msg): void
     {
-        /**
-         * @var \Ratchet\WebSocket\WsConnection $from
-         */
-        $numRecv = count($this->clients) - 1;
-        echo sprintf(
-            'Sending message "%s" to %d other connection%s' . "\n",
-            $msg,
-            $numRecv,
-            $numRecv == 1 ? '' : 's'
-        );
+        // Don't log output if ping message
+        if ('ping' !== $msg) {
+            /**
+             * @var \Ratchet\WebSocket\WsConnection $from
+             */
+            $numRecv = count($this->clients) - 1;
+            echo sprintf(
+                'Sending message "%s" to %d other connection%s' . "\n",
+                $msg,
+                $numRecv,
+                $numRecv == 1 ? '' : 's'
+            );
+        }
 
         foreach ($this->clients as $client) {
             if ($from !== $client) {
@@ -79,5 +82,5 @@ $server = IoServer::factory(
     $port
 );
 
-echo 'Initializing websocket server';
+echo "Initializing websocket server";
 $server->run();
