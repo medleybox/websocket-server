@@ -1,4 +1,8 @@
 {
+    "name": "medleybox/websocket-server",
+    "license": "GPL",
+    "type": "project",
+    "description": "A websocet server written in PHP using the `cboden/ratchet` framework.",
     "require": {
         "cboden/ratchet": "dev-php82",
         "ratchet/pawl": "^0.4.1"
@@ -11,8 +15,17 @@
     ],
     "replace": {
         "symfony/polyfill-mbstring": "*",
+        "symfony/polyfill-php83": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php80": "*"
-     }
+    },
+    "config": {
+        "platform": {
+            "php": "8.3"
+        },
+        "preferred-install": {
+            "*": "dist"
+        }
+    }
 }
